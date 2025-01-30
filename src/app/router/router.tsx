@@ -1,13 +1,12 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createHashRouter } from "react-router-dom";
 
 import { MainLayout } from "../layouts/mainLayout";
 
 import { RegisterPage } from "@/pages/registerPage";
 import { ErrorPage } from "@/pages/errorPage";
 import { HomePage } from "@/pages/home";
-import { DashboardLayout } from "../layouts/dashboardLayout";
 
-const Router = createBrowserRouter(
+const Router = createHashRouter(
   [
     {
       path: "/",
@@ -20,7 +19,10 @@ const Router = createBrowserRouter(
         },
         {
           path: "/dashboard",
-          element: <DashboardLayout />,
+          lazy: async () => {
+            let { DashboardLayout } = await import("../layouts/dashboardLayout");
+            return { Component: DashboardLayout };
+          },
           children: [
             {
               index: true,
