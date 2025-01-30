@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/crypto/(.*)",
+      "destination": "/"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}

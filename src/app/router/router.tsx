@@ -6,31 +6,36 @@ import { RegisterPage } from "@/pages/registerPage";
 import { ErrorPage } from "@/pages/errorPage";
 import { HomePage } from "@/pages/home";
 
-const Router = createBrowserRouter([
-  {
-    path: "/",
-    element: <MainLayout />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        index: true,
-        element: <RegisterPage />,
-      },
-      {
-        path: "/dashboard",
-        lazy: async () => {
-          let { DashboardLayout } = await import("../layouts/dashboardLayout");
-          return { Component: DashboardLayout };
+const Router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      element: <MainLayout />,
+      errorElement: <ErrorPage />,
+      children: [
+        {
+          index: true,
+          element: <RegisterPage />,
         },
-        children: [
-          {
-            index: true,
-            element: <HomePage />,
+        {
+          path: "/dashboard",
+          lazy: async () => {
+            let { DashboardLayout } = await import("../layouts/dashboardLayout");
+            return { Component: DashboardLayout };
           },
-        ],
-      },
-    ],
-  },
-]);
+          children: [
+            {
+              index: true,
+              element: <HomePage />,
+            },
+          ],
+        },
+      ],
+    },
+  ],
+  {
+    basename: "/crypto",
+  }
+);
 
 export default Router;
