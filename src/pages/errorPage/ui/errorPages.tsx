@@ -1,5 +1,7 @@
 import { NavLink } from "react-router-dom";
 
+import errorIcon from '/404-icon.svg'
+
 export const ErrorPage = () => {
   return (
     <div className="min-w-[100vw] min-h-[100vh] bg-[#030014] flex items-center justify-center">
@@ -10,7 +12,7 @@ export const ErrorPage = () => {
           >
             4
           </p>
-          <img src="/404-icon.svg" className="h-[325px] translate-x-3" alt="404-icon" />
+          <img src={errorIcon} className="h-[325px] translate-x-3" alt="404-icon" />
           <p className="text-[325px] font-bold text-white  animate-custom-bounce">4</p>
         </div>
         <div className="flex flex-col items-center justify-center gap-8">
