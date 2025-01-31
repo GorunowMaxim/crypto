@@ -32,7 +32,10 @@ const Router = createBrowserRouter(
         },
       ],
     },
-  ]
+  ],
+  {
+    basename: '/crypto'
+  }
 );
 
 export default Router;
