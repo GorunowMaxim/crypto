@@ -4,7 +4,7 @@ import { MainLayout } from "../layouts/mainLayout";
 
 import { RegisterPage } from "@/pages/registerPage";
 import { ErrorPage } from "@/pages/errorPage";
-import { HomePage } from "@/pages/home";
+import { HomePage } from "@/pages/dashboard";
 
 const Router = createBrowserRouter(
   [
