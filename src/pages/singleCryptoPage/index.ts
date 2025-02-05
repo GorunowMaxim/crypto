@@ -1,0 +1,1 @@
+export { SingleCryptoPage } from './ui/singleCryptoPage'

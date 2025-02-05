@@ -1,15 +1,15 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom'
 
-import { MainLayout } from "../layouts/mainLayout";
+import { MainLayout } from '../layouts/mainLayout'
+import { DashboardLayout } from '../layouts/dashboardLayout'
 
-import { RegisterPage } from "@/pages/registerPage";
-import { ErrorPage } from "@/pages/errorPage";
-import { HomePage } from "@/pages/dashboard";
+import { RegisterPage } from '@/pages/registerPage'
+import { ErrorPage } from '@/pages/errorPage'
 
-const Router = createBrowserRouter(
+export const AppRouter = createBrowserRouter(
   [
     {
-      path: "/",
+      path: '/',
       element: <MainLayout />,
       errorElement: <ErrorPage />,
       children: [
@@ -18,15 +18,37 @@ const Router = createBrowserRouter(
           element: <RegisterPage />,
         },
         {
-          path: "/dashboard",
-          lazy: async () => {
-            let { DashboardLayout } = await import("../layouts/dashboardLayout");
-            return { Component: DashboardLayout };
-          },
+          path: '/dashboard',
+          element: <DashboardLayout />,
           children: [
             {
               index: true,
-              element: <HomePage />,
+              path: '/dashboard/main',
+              lazy: async () => {
+                let { HomePage } = await import('@/pages/dashboard')
+                return { Component: HomePage }
+              },
+            },
+            {
+              path: '/dashboard/news',
+              lazy: async () => {
+                let { NewsPage } = await import('@/pages/newsPage')
+                return { Component: NewsPage }
+              },
+            },
+            {
+              path: '/dashboard/user',
+              lazy: async () => {
+                let { UserPage } = await import('@/pages/userPage')
+                return { Component: UserPage }
+              },
+            },
+            {
+              path: '/dashboard/single-crypto',
+              lazy: async () => {
+                let { SingleCryptoPage } = await import('@/pages/singleCryptoPage')
+                return { Component: SingleCryptoPage }
+              },
             },
           ],
         },
@@ -34,8 +56,7 @@ const Router = createBrowserRouter(
     },
   ],
   {
-    basename: '/crypto'
+    basename: '/crypto',
   }
-);
+)
 
-export default Router;

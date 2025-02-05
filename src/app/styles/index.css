@@ -102,3 +102,29 @@ h6 {
 sup {
   color: inherit;
 }
+
+::-webkit-scrollbar {
+  width: 4px; /* Толщина вертикального скроллбара */
+  height: 4px; /* Толщина горизонтального скроллбара */
+}
+
+/* Скрытие стрелок в WebKit */
+::-webkit-scrollbar-button {
+  display: none; /* Скрываем кнопки (стрелки) */
+}
+
+/* Стили для трека (фона) скроллбара */
+::-webkit-scrollbar-track {
+  background: transparent; /* Прозрачный фон */
+}
+
+/* Стили для "бегунка" скроллбара */
+::-webkit-scrollbar-thumb {
+  background: #888; /* Цвет бегунка */
+  border-radius: 2px; /* Закругление углов */
+}
+
+/* Стили для бегунка при наведении */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Цвет бегунка при наведении */
+}

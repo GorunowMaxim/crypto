@@ -20,7 +20,7 @@ export const ErrorPage = () => {
             the page you're looking for can't be found. it's look like you're trying to access a page that either has
             een deleted or never existed...
           </p>
-          <NavLink to={'/'} className='py-3 px-6 bg-[#feea6d] rounded font-bold text-sm'>HOME PAGE</NavLink>
+          <NavLink to={'/dashboard/main'} className='py-3 px-6 bg-[#feea6d] rounded font-bold text-sm'>HOME PAGE</NavLink>
         </div>
       </div>
     </div>
